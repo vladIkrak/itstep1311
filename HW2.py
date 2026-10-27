@@ -12,7 +12,6 @@ else:
 
 # №3
 import random
-12
 
 secret = random.randint(1, 10)
 print("Я загадав число від 1 до 10. У вас 3 спроби.")
