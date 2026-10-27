@@ -194,7 +194,51 @@ class Job:
         self.salary = job_list[self.job]["salary"]
         self.gladness_less = job_list[self.job]["gladness_less"]
 
+class BankAccount:
+    def __init__(self, owner, number, balance=0):
+        self.owner = owner
+        self.number = number
+        self.balance = balance
+
+
+class Bank:
+    def __init__(self):
+        self.accounts = {}
+
+    def open_account(self, owner, number, balance=0):
+        self.accounts[number] = BankAccount(owner, number, balance)
+
+    def deposit(self, number, amount):
+        self.accounts[number].balance += amount
+
+    def withdraw(self, number, amount):
+        acc = self.accounts[number]
+        if amount > acc.balance:
+            print("Недостатньо коштів")
+            return
+        acc.balance -= amount
+
+    def transfer(self, from_number, to_number, amount):
+        if amount > self.accounts[from_number].balance:
+            print("Недостатньо коштів")
+            return
+        self.accounts[from_number].balance -= amount
+        self.accounts[to_number].balance += amount
+
+    def show(self):
+        for acc in self.accounts.values():
+            print(acc.owner, acc.number, acc.balance)
+
+
 nick = Human(name="Nick")
 for day in range(1, 8):
     if nick.live(day) == False:
         break
+
+bank = Bank()
+bank.open_account("Nick", "UA001", 1000)
+bank.open_account("Anna", "UA002", 500)
+bank.deposit("UA001", 200)
+bank.withdraw("UA002", 100)
+bank.transfer("UA001", "UA002", 300)
+bank.show()
