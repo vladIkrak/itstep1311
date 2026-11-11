@@ -15,3 +15,43 @@ class my_test(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+logging.debug("debug")
+logging.info("info")
+logging.warning("warning")
+logging.error("error")
+logging.critical("critical")
+logging.basicConfig(level=logging.DEBUG)
+logging.debug("debug2")
+logging.info("info2")'''
+'''
+logging.basicConfig(level=logging.DEBUG, filename="logs.log", filemode="w", format="we have logging messages%(asctime)s:%(levelname)s:%(message)s")
+logging.debug("debug")
+logging.info("info")'''
+
+'''assert 2+2 == 5, "wrong assert"'''
+
